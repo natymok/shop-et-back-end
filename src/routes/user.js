@@ -13,4 +13,9 @@ router.get('/search/products', searchProduct)
 router.post('/addTocart',required,addtoCart)
 router.get('/getcart',required,getCart)
 router.put('/removefromCart',required,removefromCart)
+router.get('/test',((req,res)=>{
+    res.status(200).json({
+        message:"hello naty"
+    })
+}))
 module.exports=router
