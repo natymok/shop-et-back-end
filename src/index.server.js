@@ -8,7 +8,7 @@ const userRoutes=require('../src/routes/user.js')
 const mongoose=require('mongoose')
 
 const DBURI='mongodb+srv://nati:1234@cluster0.sskche6.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(DBURI ,
+mongoose.connect(process.env.MONGODB_URI || DBURI ,
     {   useNewUrlParser:true,
     useUnifiedTopology:true,
     
