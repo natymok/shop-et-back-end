@@ -1,14 +1,14 @@
 const express=require('express')
 const cookieParser=require('cookie-parser')
 const cors=require('cors')
+const path=require('path')
 require('dotenv').config()
 const app=express()
-const adminRoutes=require('../src/routes/admin')
-const userRoutes=require('../src/routes/user.js')
+const adminRoutes=require('./routes/admin')
+const userRoutes=require('./routes/user.js')
 const mongoose=require('mongoose')
 
-const DBURI='mongodb+srv://nati:1234@cluster0.sskche6.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(process.env.MONGODB_URI || DBURI ,
+mongoose.connect(process.env.MONGODB_URI ,
     {   useNewUrlParser:true,
     useUnifiedTopology:true,
     
@@ -26,9 +26,22 @@ app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
 app.use('/api',userRoutes)
 app.use('/api',adminRoutes)
-app.use('/public',express.static('catagoryimg'))
-app.use('/public',express.static('uploads'))
+app.use('/public', express.static(path.join(__dirname, '/catagoryimg')))
+app.use('/public', express.static(path.join(__dirname, '/uploads')))
+if(process.env.NODE_ENV=='production')
+{   console.log('production mode active')
+    app.use(express.static(path.join(__dirname,'/front-end/build')))
+    app.get('*',((req,res)=>{
+        res.sendFile(path.join(__dirname,"front-end","build","index.html"))
+    }))
+}
+else{
+    console.log('devv mode')
+    app.get('/',((req,res)=>{
+        res.send('api running')
+    }))
+}
 
-app.listen(process.env.PORT || 3000,()=>{
-    console.log(`server lisineng on port 3000`)
+app.listen(process.env.PORT,()=>{
+    console.log(`server lisineng on port${process.env.PORT}`)
 })
