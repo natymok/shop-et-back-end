@@ -32,7 +32,7 @@ exports.addCatagory=(req,res,next)=>{
     
     }
     if(req.file){
-        catagoryObject.img="http://localhost:3000/public/" + req.file.filename
+        catagoryObject.img="https://etshop-server.onrender.com/public/" + req.file.filename
 
     }
     
