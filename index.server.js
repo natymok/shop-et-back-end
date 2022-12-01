@@ -30,10 +30,7 @@ app.use('/public', express.static(path.join(__dirname, 'src//catagoryimg')))
 app.use('/public', express.static(path.join(__dirname, 'src/uploads')))
 if(process.env.NODE_ENV=='production')
 {   console.log('production mode active')
-    app.use(express.static(path.join(__dirname,'/front-end/build')))
-    app.get('*',((req,res)=>{
-        res.sendFile(path.join(__dirname,"front-end","build","index.html"))
-    }))
+   
 }
 else{
     console.log('devv mode')
