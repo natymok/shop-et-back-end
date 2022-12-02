@@ -26,8 +26,8 @@ app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
 app.use('/api',userRoutes)
 app.use('/api',adminRoutes)
-app.use('/public', express.static(path.join(__dirname, '/src/catagoryimg')))
-app.use('/public', express.static(path.join(__dirname, '/src/uploads')))
+app.use('/public', express.static(path.join(__dirname, 'src/catagoryimg')))
+app.use('/public', express.static(path.join(__dirname, 'src/uploads')))
 if(process.env.NODE_ENV=='production')
 {   console.log('production mode active')
    
@@ -40,5 +40,5 @@ else{
 }
 
 app.listen(process.env.PORT || 3000,()=>{
-    console.log('server listening ')
+    console.log(`server lisineng on port${process.env.PORT || 3000}`)
 })
