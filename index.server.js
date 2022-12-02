@@ -4,8 +4,8 @@ const cors=require('cors')
 const path=require('path')
 require('dotenv').config()
 const app=express()
-const adminRoutes=require('./routes/admin')
-const userRoutes=require('./routes/user.js')
+const adminRoutes=require('./src/routes/admin')
+const userRoutes=require('./src/routes/user.js')
 const mongoose=require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URI ,
