@@ -73,7 +73,7 @@ exports.validateRequest=[
     }
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
-          cb(null,path.join(path.dirname(__dirname),'../uploads'))
+          cb(null,path.join(path.dirname(__dirname),'uploads'))
         },
         filename: function (req, file, cb) {
           const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
@@ -84,7 +84,7 @@ exports.validateRequest=[
    exports.upload=upload
    const storage1 = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null,path.join(path.dirname(__dirname),'../catagoryimg'))
+      cb(null,path.join(path.dirname(__dirname),'catagoryimg'))
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
