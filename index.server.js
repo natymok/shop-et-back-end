@@ -26,8 +26,8 @@ app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
 app.use('/api',userRoutes)
 app.use('/api',adminRoutes)
-app.use(express.static('catagoryimg'));
-app.use(express.static('uploads'));
+app.use( express.static(path.join(__dirname, '/src/uploads')))
+app.use( express.static(path.join(__dirname, '/src/catagoryimg')))
 if(process.env.NODE_ENV=='production')
 {   console.log('production mode active')
    
