@@ -29,12 +29,13 @@ exports.addCatagory=(req,res,next)=>{
         name:req.body.name,
         slug:slugify(req.body.name),
         quantity:req.body.quantity,
+        img:req.body.img
     
     }
-    if(req.file){
+   /* if(req.file){
         catagoryObject.img="https://etshop-server.onrender.com/public/" + req.file.filename
 
-    }
+    }*/
     
     if(req.body.parentId){
         catagoryObject.parentId=req.body.parentId
