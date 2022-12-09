@@ -4,10 +4,10 @@
   "description": "back end of ecommerce app",
   "main": "index.js",
   "scripts": {
-    "build":"webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"  node index.server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run build --prefix front-end "
+    "start": "  node index.server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run build --prefix front-end "
   },
   "keywords": [
     "api",
@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
+    "express-csp-header": "^5.1.0",
     "express-validator": "^6.14.2",
     "heroku": "^7.66.4",
     "jsonwebtoken": "^8.5.1",
@@ -34,8 +35,5 @@
   "engines": {
     "node": " 16.15.1",
     "npm": "8.13.2"
-}
-
- 
-
+  }
 }

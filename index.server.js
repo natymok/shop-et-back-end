@@ -1,6 +1,7 @@
 const express=require('express')
 const cookieParser=require('cookie-parser')
 const cors=require('cors')
+const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
 const path=require('path')
 require('dotenv').config()
 const app=express()
@@ -22,6 +23,16 @@ mongoose.connect(process.env.MONGODB_URI ,
 })
 const bodyParser=require('body-parser')
 app.use(cors())
+app.use(expressCspHeader({
+    directives: {
+        'default-src': [SELF],
+        'script-src': [SELF, INLINE, 'https://etshop-server.onrender.com'],
+        'style-src': [SELF, 'mystyles.net'],
+        'img-src': ['data:', 'https://etshop-server.onrender.com/public'],
+        'worker-src': [NONE],
+        'block-all-mixed-content': true
+    }
+}));
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
 app.use('/api',userRoutes)
