@@ -46,6 +46,7 @@ exports.addCatagory=(req,res,next)=>{
     )
     _catagory.save()
     .then((catagory)=>{
+        res.set("Content-Security-Policy", "default-src 'self'");
         res.status(200).json({
             catagory:catagory
         })
