@@ -30,8 +30,7 @@ app.use(expressCspHeader({
         'style-src': [SELF, 'mystyles.net'],
         'img-src': ['data:', 'https://etshop-server.onrender.com/public'],
         'worker-src': [NONE],
-        'block-all-mixed-content': true
-    }
+        'block-all-mixed-content': false    }
 }));
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
