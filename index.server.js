@@ -26,7 +26,7 @@ app.use(cors())
 app.use(expressCspHeader({
     directives: {
         'default-src': [SELF],
-        'connect-src':[SELF,'https://etshop-server.onrender.com/'],
+        'connect-src':[SELF,'https://etshop-server.onrender.com'],
         'script-src': [SELF, INLINE, '*'],
         'style-src': [SELF, '*'],
         'img-src': ['data:', '*'],
