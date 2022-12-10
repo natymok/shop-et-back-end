@@ -23,6 +23,16 @@ mongoose.connect(process.env.MONGODB_URI ,
 })
 const bodyParser=require('body-parser')
 app.use(cors())
+app.use(expressCspHeader({
+    directives: {
+        'default-src': [SELF],
+        'connect-src':[SELF,'https://etshop-server.onrender.com/'],
+        'script-src': [SELF, INLINE, '*'],
+        'style-src': [SELF, '*'],
+        'img-src': ['data:', '*'],
+        'worker-src': [NONE],
+        'block-all-mixed-content': false   }
+}));
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser())
 app.use('/api',userRoutes)
