@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI ,
 })
 const bodyParser=require('body-parser')
 app.use(cors({
-    origin: 'https://etshop-online.onrender.com/'
+    origin: '*'
 }))
 app.use(expressCspHeader({
     directives: {
