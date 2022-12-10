@@ -22,9 +22,7 @@ mongoose.connect(process.env.MONGODB_URI ,
     console.log(err)
 })
 const bodyParser=require('body-parser')
-app.use(cors({
-    origin: '*'
-}))
+app.use(cors())
 app.use(expressCspHeader({
     directives: {
         'default-src': [SELF],
