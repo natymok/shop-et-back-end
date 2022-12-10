@@ -78,14 +78,8 @@ exports.getCatagory=(req,res,next)=>{
     })
 }
 exports.addProducts=(req,res,next)=>{
-    let productPicture=[]
-    if(req.files.length>0){
-        productPicture=req.files.map((file=>{
-            return {img:file.filename}
-        }))
+    const productPicture=[{img:req.body.productPicture}]
     
-
-    }
     
         
     
