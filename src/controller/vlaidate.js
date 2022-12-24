@@ -66,7 +66,7 @@ exports.validateRequest=[
     exports.isAdmin=(req,res,next)=>{
         if(req.user.role !=='admin'){
             return res.status(400).json({
-                err:'sign in as admin to add catagories'
+                err:err
             })
         }
         next()
