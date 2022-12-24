@@ -1,7 +1,7 @@
 const product=require('../models/Products')
 exports.getProduct=(req,res)=>{
   const page=req.query.p || 0
-  const productperpage=9
+  const productperpage=8
     product.find()
        .sort({ _id: -1 })
        .skip(page*productperpage)
