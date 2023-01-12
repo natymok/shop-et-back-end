@@ -83,10 +83,11 @@ exports.addProducts=(req,res,next)=>{
     
         
     
-    const{name,price,Description,catagory,createdBy}=req.body
+const{name,price,quantity,Description,catagory,createdBy}=req.body
     
   const item =new prodcut({
     name,
+    quantity,
     price:parseInt(price),
     Description,
     catagory,
