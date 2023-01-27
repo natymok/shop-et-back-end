@@ -71,7 +71,7 @@ exports.validateRequest=[
         }
         next()
     }
-    const storage = multer.diskStorage({
+    /*const storage = multer.diskStorage({
         destination: function (req, file, cb) {
           cb(null,path.join(path.dirname(__dirname),'uploads'))
         },
@@ -94,5 +94,5 @@ exports.validateRequest=[
 
 const upload1=multer({storage:storage1})
 exports.upload1=upload1
-   
+   */
    
